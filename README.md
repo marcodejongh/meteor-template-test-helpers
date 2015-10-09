@@ -24,5 +24,26 @@ TemplateTestHelpers.getTemplateOnRenderedFunction(templateName).call(templateIns
 //Insert assertions here
 ```
 
+## Installing
+[Atmosphere](https://atmospherejs.com/mdj/template-test-helpers)
+
+Usually you'd put this package in the api.use of the onTest clause of a package you want to test.
+
+Example:
+
+```
+  api.use([
+    'ecmascript',
+    'mike:mocha-package@0.5.8',
+    'practicalmeteor:sinon',
+    'practicalmeteor:chai',
+    'underscore',
+    'mdj:template-test-helpers@0.1.0'
+  ]);
+```
+
+
+
+
 
 TODO: I will write more documentation soon. For now just check the code in the client directory.
