@@ -25,4 +25,4 @@ TemplateTestHelpers.getTemplateOnRenderedFunction(templateName).call(templateIns
 ```
 
 
-TODO: I will write better documentation soon. For now just check the code in the client directory.
+TODO: I will write more documentation soon. For now just check the code in the client directory.

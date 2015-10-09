@@ -12,7 +12,7 @@ Package.onUse(function(api) {
     'ecmascript',
     'underscore',
     'templating',
-    'practicalmeteor:sinon',
+    'practicalmeteor:sinon@1.14.1_2',
     'jquery'
   ]);
 
