@@ -42,7 +42,8 @@ Example:
     'packageYourTesting' //Make sure template-test-helpers is loaded before the package containing the template you want to test
   ]);
 ```
-*Important note*: to be able to catch the raw event handlers the package contains a override of ```Template.prototype.events```. So to ensure this package works like intended make sure you specify this package *BEFORE* the package containing the templates you want to test.
+**Important note**: to be able to catch the raw event handlers, this package contains a override of ```Template.prototype.events```. 
+So to ensure this package works like intended make sure you specify this package **BEFORE** the package containing the templates you want to test.
 
 
 
