@@ -38,7 +38,8 @@ Example:
     'practicalmeteor:sinon',
     'practicalmeteor:chai',
     'underscore',
-    'mdj:template-test-helpers@0.1.0'
+    'mdj:template-test-helpers@0.2.0',
+    'packageYourTesting' //Make sure template-test-helpers is loaded before the package containing the template you want to test
   ]);
 ```
 
