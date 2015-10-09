@@ -23,3 +23,6 @@ TemplateTestHelpers.getTemplateOnRenderedFunction(templateName).call(templateIns
 
 //Insert assertions here
 ```
+
+
+TODO: I will write better documentation soon. For now just check the code in the client directory.
