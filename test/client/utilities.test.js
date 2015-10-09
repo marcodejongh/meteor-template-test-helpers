@@ -2,6 +2,7 @@ describe('TemplateTestHelpers', function() {
   describe('Utilities', function() {
     const greenPathTemplateName = 'simpleGreenpath';
     const multipleHandlers = 'multipleHandlers';
+    const multipleEventMaps = 'multipleEvents';
 
     function commonExceptionAssertions(fnName) {
       describe('When called with a templateName that doesn\'t exist', function() {
@@ -40,7 +41,6 @@ describe('TemplateTestHelpers', function() {
           describe('Given position doesnt exist', function() {
             it('Should throw an error', function() {
               let position = 100;
-              let handlers = TestTemplates[templateName][handlerName];
               expect(function() {
                 TemplateTestHelpers[fnName](templateName, position);
               }).to.throw;
@@ -80,6 +80,23 @@ describe('TemplateTestHelpers', function() {
         _.each(TestTemplates[greenPathTemplateName].helpers,
           (fn, name) => expect(TemplateTestHelpers.getTemplateHelper(greenPathTemplateName, name)).to.equal(fn));
       });
+    });
+
+    describe('#getTemplateEventHandler', function() {
+      //Template['header'].__eventMaps
+      it('Should return the events for the given event key', function() {
+        let eventKey = 'click';
+        expect(TemplateTestHelpers.getTemplateEventHandler(greenPathTemplateName, eventKey)).to.equal(TestTemplates[greenPathTemplateName].events[eventKey]);
+      });
+
+      describe('When template has multiple eventMaps', function() {
+        it('Should return the events for the given event key at the given position', function() {
+          let eventKey = 'click';
+          let position = 1;
+          expect(TemplateTestHelpers.getTemplateEventHandler(multipleEventMaps, eventKey, position)).to.equal(TestTemplates[multipleEventMaps].events[position][eventKey]);
+        });
+      });
+
     });
   });
 });

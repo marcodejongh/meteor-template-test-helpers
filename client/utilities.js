@@ -73,3 +73,26 @@ TemplateTestHelpers.getMockTemplateInstance = function() {
 
   return templateInstance;
 };
+
+/**
+ * Extend default Template.prototype.events so we can keep the raw version of the eventHandler
+ */
+let oldEvents = Template.prototype.events;
+Template.prototype.events = function(eventMap) {
+  this.rawEventMap = this.rawEventMap || [];
+  this.rawEventMap.push(eventMap);
+  return oldEvents.apply(this, arguments);
+};
+
+/***
+ * Returns the raw event handler as passed to Template.events.
+ *
+ * @param {String} templateName the name of the template for which to return the eventHandler
+ * @param {String} eventType selector of the handler to pull out
+ * @param {Number} [position=0] when multiple calls to Template.events where made the position of that call (0=first call, 1=second call etc)
+ * @returns {*}
+ */
+TemplateTestHelpers.getTemplateEventHandler = function(templateName, eventType, position=0) {
+  var events = getTemplate(templateName).rawEventMap[position];
+  return events[eventType];
+};

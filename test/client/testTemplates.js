@@ -28,6 +28,12 @@ TestTemplates.simpleGreenpath.helpers = {
   }
 };
 
+TestTemplates.simpleGreenpath.events = {
+  'click': function() {
+    return 'foo';
+  }
+};
+
 TestTemplates.multipleHandlers = {};
 
 TestTemplates.multipleHandlers.onCreated = [
@@ -41,6 +47,18 @@ TestTemplates.multipleHandlers.onCreated = [
     return 'foobar';
   }
 ];
+
+TestTemplates.multipleEvents = {};
+
+TestTemplates.multipleEvents.events = [{
+  'click': function() {
+    return 'foo';
+  }
+},{
+  'click': function() {
+    return 'bar';
+  }
+}];
 
 function addHandler(template, which, handler) {
   template[which](handler);
@@ -60,6 +78,18 @@ function buildHandlers(object, template, which) {
   }
 }
 
+function addEvents(eventsObject, template) {
+  template.events(eventsObject);
+}
+
+function buildEvents(events, template) {
+  if (_.isArray(events)) {
+    _.each(events, eventObject => addEvents(eventObject, template));
+  } else {
+    addEvents(events, template);
+  }
+}
+
 function buildTemplateFromObject(templateObject, templateName) {
   let object = templateObject;
   let template = Template[templateName];
@@ -70,6 +100,10 @@ function buildTemplateFromObject(templateObject, templateName) {
 
   if (object.helpers) {
     template.helpers(object.helpers);
+  }
+
+  if (object.events) {
+    buildEvents(object.events, template);
   }
 }
 

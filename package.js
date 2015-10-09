@@ -1,6 +1,6 @@
 Package.describe({
   name: 'mdj:template-test-helpers',
-  version: '0.1.0',
+  version: '0.2.0',
   summary: 'Utilities for unit & integration testing template helpers and callbacks',
   git: 'https://github.com/marcodejongh/meteor-template-test-helpers',
   documentation: 'README.md'
