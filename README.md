@@ -31,7 +31,7 @@ Usually you'd put this package in the api.use of the onTest clause of a package 
 
 Example:
 
-```
+```javascript
   api.use([
     'ecmascript',
     'mike:mocha-package@0.5.8',
