@@ -1,0 +1,3 @@
+/* global TemplateTestHelpers:true*/
+
+TemplateTestHelpers = {};
