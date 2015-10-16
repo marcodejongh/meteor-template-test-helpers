@@ -1,15 +1,13 @@
 {
   "env": {
     "node": true,
-    "mocha": true,
     "browser": true,
     "builtin": true,
     "meteor": true,
     "es6": true
   },
   "globals": {
-    "TemplateTestHelpers": false,
-    "TestTemplates": false
+    "TemplateTestHelpers": false
   },
   "rules": {
     "block-scoped-var": 2,
